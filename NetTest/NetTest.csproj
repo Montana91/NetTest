@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -60,27 +60,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee.Designer.cs">
+    <Compile Include="DataSets\siteds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Employee.xsd</DependentUpon>
+      <DependentUpon>siteds.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GallinetTest.cs">
+    <Compile Include="Models\mAccount.cs" />
+    <Compile Include="Models\mCash.cs" />
+    <Compile Include="PettyCash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GallinetTest.Designer.cs">
-      <DependentUpon>GallinetTest.cs</DependentUpon>
+    <Compile Include="PettyCash.Designer.cs">
+      <DependentUpon>PettyCash.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ucSearch.cs">
+    <Compile Include="UserControls\ucCashSpend.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucSearch.Designer.cs">
-      <DependentUpon>ucSearch.cs</DependentUpon>
+    <Compile Include="UserControls\ucCashSpend.Designer.cs">
+      <DependentUpon>ucCashSpend.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GallinetTest.resx">
-      <DependentUpon>GallinetTest.cs</DependentUpon>
+    <Compile Include="UserControls\ucLoggedIn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLoggedIn.Designer.cs">
+      <DependentUpon>ucLoggedIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLogin.Designer.cs">
+      <DependentUpon>ucLogin.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PettyCash.resx">
+      <DependentUpon>PettyCash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,19 +105,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ucSearch.resx">
-      <DependentUpon>ucSearch.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\ucCashSpend.resx">
+      <DependentUpon>ucCashSpend.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Employee.xsc">
-      <DependentUpon>Employee.xsd</DependentUpon>
+    <EmbeddedResource Include="UserControls\ucLoggedIn.resx">
+      <DependentUpon>ucLoggedIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucLogin.resx">
+      <DependentUpon>ucLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSets\siteds.xsc">
+      <DependentUpon>siteds.xsd</DependentUpon>
     </None>
-    <None Include="Employee.xsd">
+    <None Include="DataSets\siteds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Employee.Designer.cs</LastGenOutput>
+      <LastGenOutput>siteds.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Employee.xss">
-      <DependentUpon>Employee.xsd</DependentUpon>
+    <None Include="DataSets\siteds.xss">
+      <DependentUpon>siteds.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -119,20 +139,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="sitedb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="sitedb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>sitedb.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NetTest_scripts\accData.sql" />
+    <Content Include="NetTest_scripts\accSchema.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Db\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

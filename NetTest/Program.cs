@@ -16,7 +16,7 @@ namespace NetTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GallinetTest());
+            Application.Run(new PettyCash());
         }
     }
 }

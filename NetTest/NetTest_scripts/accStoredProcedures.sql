@@ -5,9 +5,13 @@ Go
 CREATE PROCEDURE spGetAccountLoggedIn 
 AS
 
-select top (1) aa.acaAccount from tblAccountAudit aa inner join tblAuditType at on aa.acaAuditType=at.autId
-where at.autKey='Li'
+declare @acaAccount uniqueidentifier
+declare @autKey varchar(10)
+select top (1) @acaAccount=aa.acaAccount, @autkey=at.autkey from tblAccountAudit aa inner join tblAuditType at on aa.acaAuditType=at.autId
  order by aa.acaDT desc
+if @autkey != 'Li'
+set @acaAccount = null
+select @acaAccount as acaAccount
 
 GO
 
@@ -15,19 +19,23 @@ if exists (select * from sys.procedures where name = 'spAccountLogin')
 Drop PROCEDURE spAccountLogin
 Go
 
-CREATE PROCEDURE spAccountLogin
+if exists (select * from sys.procedures where name = 'spAccountLoginOut')
+Drop PROCEDURE spAccountLoginOut
+Go
+CREATE PROCEDURE spAccountLoginOut
 	@accusername nvarchar(50),
 	@accpwd nvarchar(50),
-	@dt datetime
+	@dt datetime,
+	@inout varchar(10)
 AS
 declare @accid uniqueidentifier
 declare @audid uniqueidentifier
 
-set @audid = (select autId from tblAuditType where autKey='Li')
+set @audid = (select autId from tblAuditType where autKey=@inout)
 
 set @accid = (select accId from tblAccount where accUserName=@accusername and accPwd=@accpwd)
 
-if not @accid is null
+if not @accid is null and (@inout = 'Li' or @inout='Lo')
 INSERT INTO [dbo].[tblAccountAudit]
            ([acaDT]
            ,[acaAccount]

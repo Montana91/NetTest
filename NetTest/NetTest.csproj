@@ -148,6 +148,8 @@
   <ItemGroup>
     <Content Include="NetTest_scripts\accData.sql" />
     <Content Include="NetTest_scripts\accSchema.sql" />
+    <Content Include="NetTest_scripts\accStoredProcedures.sql" />
+    <Content Include="NetTest_scripts\tests\tstLogin.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Db\" />

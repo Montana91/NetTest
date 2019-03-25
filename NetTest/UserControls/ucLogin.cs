@@ -26,8 +26,8 @@ namespace NetTest.UserControls
         }
         private void liSubmit_Click(object sender, EventArgs e)
         {
-            spAccountLoginTableAdapter ta = new spAccountLoginTableAdapter();
-            siteds.spAccountLoginDataTable dt = ta.GetData(LIusername.Text, LIpwd.Text, DateTime.Now);
+            spAccountLoginOutTableAdapter ta = new spAccountLoginOutTableAdapter();
+            siteds.spAccountLoginOutDataTable dt = ta.GetData(LIusername.Text, LIpwd.Text, DateTime.Now, "Li");
             if (dt != null)
             {
                 if (dt.Rows.Count > 0)

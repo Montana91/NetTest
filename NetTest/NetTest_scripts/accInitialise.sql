@@ -218,6 +218,27 @@ select * from tblPettyCashCategory where pccKey != 'PC_Nothing' order by ppcName
 GO
 
 
+if exists (select * from sys.procedures where name = 'spAuditInsert')
+Drop PROCEDURE [dbo].[spAuditInsert]
+Go
+Create Procedure [dbo].[spAuditInsert]
+@dt Datetime,
+@username varchar(100),
+@accType varchar(100),
+@pcType varchar(100),
+@debit decimal,
+@sum decimal
+As
+INSERT INTO [dbo].[tblPettyCashAudit] ([pcaDT],[pcaAccount],[pcaAuditType],[pcaCategory],[pcaAmount],[pcaAmountCurrent]) VALUES(@dt,(select accId from tblAccount where accUserName=@username),(select actId from tblAccountType where actName=@accType),(select pccId from tblPettyCashCategory where pccKey=@pcType),@debit,@sum)
+Go
+
+if exists (select * from sys.procedures where name = 'spGetTransactions')
+Drop PROCEDURE [dbo].[spGetTransactions]
+Go
+Create PROCEDURE [dbo].[spGetTransactions] 
+AS
+select pca.pcaDT as DateTime, pca.pcaAmount as Amount, 'Category' as Category, 'who spent cash' as Person from tblPettyCashAudit pca
+Go
 
 -----------------------------------------------------------------------------------------
 -- Data

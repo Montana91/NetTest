@@ -19,16 +19,18 @@ namespace NetTest.UserControls
 
         ucLogin ucLoginRef = null;
         ucCashSpend ucCashSpendRef = null;
+        ucTransactions ucViewTransactionsRef = null;
 
         public ucLoggedIn()
         {
             InitializeComponent();
         }
 
-        public void setRefs(ucLogin ucRef, ucCashSpend csRef)
+        public void setRefs(ucLogin ucRef, ucCashSpend csRef, ucTransactions vtRef)
         {
             ucLoginRef = ucRef;
             ucCashSpendRef = csRef;
+            ucViewTransactionsRef = vtRef;
         }
 
 
@@ -58,6 +60,12 @@ namespace NetTest.UserControls
         {
             this.Hide();
             ucCashSpendRef.Show();
+        }
+
+        private void LINtransactions_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ucViewTransactionsRef.Show();
         }
     }
 }

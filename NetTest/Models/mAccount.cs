@@ -19,7 +19,11 @@ namespace NetTest.Models
             {
                 if (dt.Rows.Count > 0)
                 {
-                    ret = dt[0].acaAccount;
+                    siteds.spGetAccountLoggedInRow dr = dt[0];
+                    if (!dr.IsacaAccountNull())
+                    {
+                        ret = dr.acaAccount;
+                    }
                 }
             }
             return ret;

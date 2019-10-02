@@ -75,7 +75,12 @@ namespace NetTest.UserControls
 
             Guid catid = Guid.Parse("1AE2822A-1EC5-4E29-9670-56101BED344C");
             Decimal cash = Convert.ToDecimal(PCSamount.Text);
-            siteds.spCashUpdateDataTable dt = ta.GetData(DateTime.Now, cAcc.accId, catid, cash, "Cs");
+            if (cAcc != null)
+            {
+                siteds.spCashUpdateDataTable dt = ta.GetData(DateTime.Now, cAcc.accId, catid, cash, "Cs");
+            }
+            this.Hide();
+            this.ucLoggedInRef.Show();
         }
     }
 }

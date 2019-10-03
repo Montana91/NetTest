@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Models\mAccount.cs" />
     <Compile Include="Models\mCash.cs" />
+    <Compile Include="Models\mUCs.cs" />
     <Compile Include="PettyCash.cs">
       <SubType>Form</SubType>
     </Compile>

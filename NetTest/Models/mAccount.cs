@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NetTest.DataSets;
-using NetTest.DataSets.sitedsTableAdapters;
+using NetTest.DataSets.sitedbTableAdapters;
 
 namespace NetTest.Models
 {
@@ -14,12 +14,12 @@ namespace NetTest.Models
         {
             Guid? ret = null;
             spGetAccountLoggedInTableAdapter ta = new spGetAccountLoggedInTableAdapter();
-            siteds.spGetAccountLoggedInDataTable dt = ta.GetData();
+            sitedb.spGetAccountLoggedInDataTable dt = ta.GetData();
             if (dt != null)
             {
                 if (dt.Rows.Count > 0)
                 {
-                    siteds.spGetAccountLoggedInRow dr = dt[0];
+                    sitedb.spGetAccountLoggedInRow dr = dt[0];
                     if (!dr.IsacaAccountNull())
                     {
                         ret = dr.acaAccount;
@@ -38,7 +38,7 @@ namespace NetTest.Models
         }
 
 
-        public cAccount(siteds.spAccountReadByIdDataTable dt)
+        public cAccount(sitedb.spAccountReadByIdDataTable dt)
         {
             accId = dt[0].accId;
             accFirstName = dt[0].accFirstName;
@@ -46,7 +46,7 @@ namespace NetTest.Models
             accUserName = dt[0].accUserName;
             accAccountTypeList = new List<cAccountType>();
 
-            foreach (siteds.spAccountReadByIdRow dr in dt)
+            foreach (sitedb.spAccountReadByIdRow dr in dt)
             {
                 accAccountTypeList.Add(new cAccountType(dr));
             }
@@ -58,7 +58,7 @@ namespace NetTest.Models
             cAccount ret = null;
 
             spAccountReadByIdTableAdapter ta = new spAccountReadByIdTableAdapter();
-            siteds.spAccountReadByIdDataTable dt = ta.GetData(accId);
+            sitedb.spAccountReadByIdDataTable dt = ta.GetData(accId);
             if (dt != null)
             {
                 if (dt.Rows.Count > 0)
@@ -80,7 +80,7 @@ namespace NetTest.Models
 
     class cAccountType
     {
-        public cAccountType(siteds.spAccountReadByIdRow dr)
+        public cAccountType(sitedb.spAccountReadByIdRow dr)
         {
             actkey = dr.actKey.Trim();
             actName = dr.actName;

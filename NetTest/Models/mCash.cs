@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NetTest.DataSets;
-using NetTest.DataSets.sitedsTableAdapters;
+using NetTest.DataSets.sitedbTableAdapters;
 
 namespace NetTest.Models
 {
@@ -34,13 +34,13 @@ namespace NetTest.Models
             List<cCash> ret = null;
 
             spCashReadListTableAdapter ta = new spCashReadListTableAdapter();
-            siteds.spCashReadListDataTable dt = ta.GetData();
+            sitedb.spCashReadListDataTable dt = ta.GetData();
 
             if (dt!= null && dt.Rows.Count >0)
             {
                 ret = new List<cCash>();
 
-                foreach(siteds.spCashReadListRow dr in dt)
+                foreach(sitedb.spCashReadListRow dr in dt)
                 {
                     ret.Add(new cCash(dr));
 ;                }
@@ -52,7 +52,7 @@ namespace NetTest.Models
 
     class cCash
     {
-        public cCash(siteds.spCashReadListRow dr)
+        public cCash(sitedb.spCashReadListRow dr)
         {
             pcaDT = dr.pcaDT;
             pcaAmount = dr.pcaAmount;

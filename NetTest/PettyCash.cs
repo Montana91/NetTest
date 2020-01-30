@@ -24,7 +24,7 @@ namespace NetTest
             ucLoggedInF.Hide();
             ucCashSpendF.Hide();
 
-            ucLoggedInF.setRefs(ucLoginF, ucCashSpendF);
+            //ucLoggedInF.setRefs(ucLoginF, ucCashSpendF);
 
             ucLoginF.setRefs(ucLoggedInF);
 

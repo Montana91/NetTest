@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetTest.DataSets;
-using NetTest.DataSets.sitedsTableAdapters;
+using NetTest.DataSets.sitedbTableAdapters;
 
 namespace NetTest.UserControls
 {
@@ -27,7 +27,7 @@ namespace NetTest.UserControls
         private void liSubmit_Click(object sender, EventArgs e)
         {
             spAccountLoginOutTableAdapter ta = new spAccountLoginOutTableAdapter();
-            siteds.spAccountLoginOutDataTable dt = ta.GetData(LIusername.Text, LIpwd.Text, DateTime.Now, "Li");
+            sitedb.spAccountLoginOutDataTable dt = ta.GetData(LIusername.Text, LIpwd.Text, DateTime.Now, "Li");
             if (dt != null)
             {
                 if (dt.Rows.Count > 0)

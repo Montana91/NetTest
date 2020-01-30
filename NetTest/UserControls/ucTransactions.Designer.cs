@@ -31,21 +31,21 @@
             this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.dgTransactions = new System.Windows.Forms.DataGridView();
-            this.siteds = new NetTest.DataSets.siteds();
-            this.spAccountLoginOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spAccountLoginOutTableAdapter = new NetTest.DataSets.sitedsTableAdapters.spAccountLoginOutTableAdapter();
-            this.sitedbDataSet = new NetTest.sitedbDataSet();
-            this.spGetTransactionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spGetTransactionsTableAdapter = new NetTest.sitedbDataSetTableAdapters.spGetTransactionsTableAdapter();
             this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spGetTransactionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sitedbDataSet = new NetTest.sitedbDataSet();
+            this.siteds = new NetTest.DataSets.sitedb();
+            this.spAccountLoginOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spAccountLoginOutTableAdapter = new NetTest.DataSets.sitedbTableAdapters.spAccountLoginOutTableAdapter();
+            this.spGetTransactionsTableAdapter = new NetTest.sitedbDataSetTableAdapters.spGetTransactionsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgTransactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spGetTransactionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sitedbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spAccountLoginOutBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sitedbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spGetTransactionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -73,34 +73,6 @@
             this.dgTransactions.Size = new System.Drawing.Size(425, 107);
             this.dgTransactions.TabIndex = 8;
             // 
-            // siteds
-            // 
-            this.siteds.DataSetName = "siteds";
-            this.siteds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spAccountLoginOutBindingSource
-            // 
-            this.spAccountLoginOutBindingSource.DataMember = "spAccountLoginOut";
-            this.spAccountLoginOutBindingSource.DataSource = this.siteds;
-            // 
-            // spAccountLoginOutTableAdapter
-            // 
-            this.spAccountLoginOutTableAdapter.ClearBeforeFill = true;
-            // 
-            // sitedbDataSet
-            // 
-            this.sitedbDataSet.DataSetName = "sitedbDataSet";
-            this.sitedbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spGetTransactionsBindingSource
-            // 
-            this.spGetTransactionsBindingSource.DataMember = "spGetTransactions";
-            this.spGetTransactionsBindingSource.DataSource = this.sitedbDataSet;
-            // 
-            // spGetTransactionsTableAdapter
-            // 
-            this.spGetTransactionsTableAdapter.ClearBeforeFill = true;
-            // 
             // dateTimeDataGridViewTextBoxColumn
             // 
             this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "DateTime";
@@ -127,6 +99,34 @@
             this.personDataGridViewTextBoxColumn.Name = "personDataGridViewTextBoxColumn";
             this.personDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // spGetTransactionsBindingSource
+            // 
+            this.spGetTransactionsBindingSource.DataMember = "spGetTransactions";
+            this.spGetTransactionsBindingSource.DataSource = this.sitedbDataSet;
+            // 
+            // sitedbDataSet
+            // 
+            this.sitedbDataSet.DataSetName = "sitedbDataSet";
+            this.sitedbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // siteds
+            // 
+            this.siteds.DataSetName = "siteds";
+            this.siteds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spAccountLoginOutBindingSource
+            // 
+            this.spAccountLoginOutBindingSource.DataMember = "spAccountLoginOut";
+            this.spAccountLoginOutBindingSource.DataSource = this.siteds;
+            // 
+            // spAccountLoginOutTableAdapter
+            // 
+            this.spAccountLoginOutTableAdapter.ClearBeforeFill = true;
+            // 
+            // spGetTransactionsTableAdapter
+            // 
+            this.spGetTransactionsTableAdapter.ClearBeforeFill = true;
+            // 
             // ucTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,10 +136,10 @@
             this.Name = "ucTransactions";
             this.Size = new System.Drawing.Size(428, 165);
             ((System.ComponentModel.ISupportInitialize)(this.dgTransactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spGetTransactionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sitedbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spAccountLoginOutBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sitedbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spGetTransactionsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,9 +148,9 @@
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgTransactions;
-        private DataSets.siteds siteds;
+        private DataSets.sitedb siteds;
         private System.Windows.Forms.BindingSource spAccountLoginOutBindingSource;
-        private DataSets.sitedsTableAdapters.spAccountLoginOutTableAdapter spAccountLoginOutTableAdapter;
+        private DataSets.sitedbTableAdapters.spAccountLoginOutTableAdapter spAccountLoginOutTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;

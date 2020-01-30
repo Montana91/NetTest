@@ -60,10 +60,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSets\siteds.Designer.cs">
+    <Compile Include="DataSets\sitedb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>siteds.xsd</DependentUpon>
+      <DependentUpon>sitedb.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\mAccount.cs" />
     <Compile Include="Models\mCash.cs" />
@@ -129,16 +129,16 @@
     <EmbeddedResource Include="UserControls\ucLogin.resx">
       <DependentUpon>ucLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSets\siteds.xsc">
-      <DependentUpon>siteds.xsd</DependentUpon>
+    <None Include="DataSets\sitedb.xsc">
+      <DependentUpon>sitedb.xsd</DependentUpon>
     </None>
-    <None Include="DataSets\siteds.xsd">
+    <None Include="DataSets\sitedb.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>siteds.Designer.cs</LastGenOutput>
+      <LastGenOutput>sitedb.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSets\siteds.xss">
-      <DependentUpon>siteds.xsd</DependentUpon>
+    <None Include="DataSets\sitedb.xss">
+      <DependentUpon>sitedb.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -176,6 +176,13 @@
     <Content Include="NetTest_scripts\accSchema.sql" />
     <Content Include="NetTest_scripts\accStoredProcedures.sql" />
     <Content Include="NetTest_scripts\tests\tstLogin.sql" />
+    <Content Include="sitedb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sitedb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>sitedb.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Db\" />

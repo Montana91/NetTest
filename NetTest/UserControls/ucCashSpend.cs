@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetTest.Models;
 using NetTest.DataSets;
-using NetTest.DataSets.sitedsTableAdapters;
+using NetTest.DataSets.sitedbTableAdapters;
 
 namespace NetTest.UserControls
 {
@@ -77,7 +77,7 @@ namespace NetTest.UserControls
             Decimal cash = Convert.ToDecimal(PCSamount.Text);
             if (cAcc != null)
             {
-                siteds.spCashUpdateDataTable dt = ta.GetData(DateTime.Now, cAcc.accId, catid, cash, "Cs");
+                sitedb.spCashUpdateDataTable dt = ta.GetData(DateTime.Now, cAcc.accId, catid, cash, "Cs");
             }
             this.Hide();
             this.ucLoggedInRef.Show();

@@ -42,14 +42,14 @@
             // 
             // ucLoggedInF
             // 
-            this.ucLoggedInF.Location = new System.Drawing.Point(82, 58);
+            this.ucLoggedInF.Location = new System.Drawing.Point(549, 257);
             this.ucLoggedInF.Name = "ucLoggedInF";
             this.ucLoggedInF.Size = new System.Drawing.Size(433, 163);
             this.ucLoggedInF.TabIndex = 1;
             // 
             // ucCashSpendF
             // 
-            this.ucCashSpendF.Location = new System.Drawing.Point(82, 58);
+            this.ucCashSpendF.Location = new System.Drawing.Point(53, 255);
             this.ucCashSpendF.Name = "ucCashSpendF";
             this.ucCashSpendF.Size = new System.Drawing.Size(428, 165);
             this.ucCashSpendF.TabIndex = 2;

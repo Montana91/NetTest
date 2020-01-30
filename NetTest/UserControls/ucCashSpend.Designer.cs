@@ -32,11 +32,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.PCScombo = new System.Windows.Forms.ComboBox();
             this.spCashSpendCategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.siteds = new NetTest.DataSets.siteds();
+            this.siteds = new NetTest.DataSets.sitedb();
             this.PCSamount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PCSspend = new System.Windows.Forms.Button();
-            this.spCashSpendCategoryTableAdapter = new NetTest.DataSets.sitedsTableAdapters.spCashSpendCategoryTableAdapter();
+            this.spCashSpendCategoryTableAdapter = new NetTest.DataSets.sitedbTableAdapters.spCashSpendCategoryTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.spCashSpendCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteds)).BeginInit();
             this.SuspendLayout();
@@ -134,7 +134,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button PCSspend;
         private System.Windows.Forms.BindingSource spCashSpendCategoryBindingSource;
-        private DataSets.siteds siteds;
-        private DataSets.sitedsTableAdapters.spCashSpendCategoryTableAdapter spCashSpendCategoryTableAdapter;
+        private DataSets.sitedb siteds;
+        private DataSets.sitedbTableAdapters.spCashSpendCategoryTableAdapter spCashSpendCategoryTableAdapter;
     }
 }

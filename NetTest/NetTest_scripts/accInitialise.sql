@@ -11,6 +11,10 @@ go
 -----------------------------------------------------------------------------------------
 -- Schema
 
+if exists (select * from sys.tables where name='tblAccount')
+Drop TABLE [dbo].[tblAccount]
+Go
+
 if not exists (select * from sys.tables where name='tblAccount')
 CREATE TABLE [dbo].[tblAccount](
 	[accId] [uniqueidentifier] Not NULL,
@@ -20,6 +24,10 @@ CREATE TABLE [dbo].[tblAccount](
 	[accPwd] [nvarchar](50) Not NULL
 ) ON [PRIMARY]
 GO
+
+if  exists (select * from sys.tables where name='tblAccountType')
+Drop TABLE [dbo].[tblAccountType]
+Go
 
 if not exists (select * from sys.tables where name='tblAccountType')
 CREATE TABLE [dbo].[tblAccountType](
@@ -33,6 +41,10 @@ CREATE TABLE [dbo].[tblAccountType](
 ) ON [PRIMARY]
 GO
 
+if  exists (select * from sys.tables where name='tblAccountTypeIndex')
+Drop TABLE [dbo].[tblAccountTypeIndex]
+Go
+
 if not exists (select * from sys.tables where name='tblAccountTypeIndex')
 CREATE TABLE [dbo].[tblAccountTypeIndex](
 	[atiId] [int] identity (1,1) NOT NULL,
@@ -45,6 +57,10 @@ CREATE TABLE [dbo].[tblAccountTypeIndex](
 ) ON [PRIMARY]
 GO
 
+if exists (select * from sys.objects where name='tblAuditType')
+Drop TABLE [dbo].[tblAuditType]
+Go
+
 if not exists (select * from sys.objects where name='tblAuditType')
 CREATE TABLE [dbo].[tblAuditType](
 	[autId] [uniqueidentifier] NOT NULL,
@@ -53,6 +69,10 @@ CREATE TABLE [dbo].[tblAuditType](
 ) ON [PRIMARY]
 GO
 
+
+if exists (select * from sys.objects where name='tblAccountAudit')
+Drop TABLE [dbo].[tblAccountAudit]
+Go
 
 if not exists (select * from sys.objects where name='tblAccountAudit')
 CREATE TABLE [dbo].[tblAccountAudit](
@@ -67,6 +87,11 @@ CREATE TABLE [dbo].[tblAccountAudit](
 ) ON [PRIMARY]
 GO
 
+
+if exists (select * from sys.objects where name='tblPettyCashCategory')
+Drop TABLE [dbo].[tblPettyCashCategory]
+Go
+
 if not exists (select * from sys.objects where name='tblPettyCashCategory')
 CREATE TABLE [dbo].[tblPettyCashCategory](
 	[pccId] [uniqueidentifier] NOT NULL,
@@ -78,6 +103,10 @@ CREATE TABLE [dbo].[tblPettyCashCategory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+if exists (select * from sys.tables where name='tblPettyCashAudit')
+Drop TABLE [dbo].[tblPettyCashAudit]
+Go
 
 if not exists (select * from sys.tables where name='tblPettyCashAudit')
 CREATE TABLE [dbo].[tblPettyCashAudit](
@@ -108,7 +137,7 @@ declare @autKey varchar(10)
 select top (1) @acaAccount=aa.acaAccount, @autkey=at.autkey from tblAccountAudit aa inner join tblAuditType at on aa.acaAuditType=at.autId
  order by aa.acaDT desc
 if @autkey != 'Li'
-set @acaAccount = null
+set @acaAccount = (SELECT CAST(CAST(0 AS BINARY) AS UNIQUEIDENTIFIER))
 select @acaAccount as acaAccount
 
 GO
@@ -143,7 +172,10 @@ INSERT INTO [dbo].[tblAccountAudit]
            ,@accid
            ,@audid
 		   )
+else
+set  @accid =  (SELECT CAST(CAST(0 AS BINARY) AS UNIQUEIDENTIFIER))
 select @accid as acaAccount
+
 GO
 
 if exists (select * from sys.procedures where name = 'spCashUpdate')

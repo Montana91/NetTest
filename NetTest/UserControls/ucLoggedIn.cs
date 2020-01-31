@@ -31,6 +31,7 @@ namespace NetTest.UserControls
             ucLoginRef = ucRef;
             ucCashSpendRef = csRef;
             ucViewTransactionsRef = vtRef;
+
         }
 
 

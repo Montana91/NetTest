@@ -28,24 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucLoginF = new NetTest.UserControls.ucLogin();
-            this.ucLoggedInF = new NetTest.UserControls.ucLoggedIn();
             this.ucCashSpendF = new NetTest.UserControls.ucCashSpend();
+            this.ucLoggedInF = new NetTest.UserControls.ucLoggedIn();
+            this.ucLoginF = new NetTest.UserControls.ucLogin();
+            this.ucTransactionsF = new NetTest.UserControls.ucTransactions();
             this.SuspendLayout();
-            // 
-            // ucLoginF
-            // 
-            this.ucLoginF.Location = new System.Drawing.Point(82, 56);
-            this.ucLoginF.Name = "ucLoginF";
-            this.ucLoginF.Size = new System.Drawing.Size(430, 165);
-            this.ucLoginF.TabIndex = 0;
-            // 
-            // ucLoggedInF
-            // 
-            this.ucLoggedInF.Location = new System.Drawing.Point(549, 257);
-            this.ucLoggedInF.Name = "ucLoggedInF";
-            this.ucLoggedInF.Size = new System.Drawing.Size(433, 163);
-            this.ucLoggedInF.TabIndex = 1;
             // 
             // ucCashSpendF
             // 
@@ -54,11 +41,33 @@
             this.ucCashSpendF.Size = new System.Drawing.Size(428, 165);
             this.ucCashSpendF.TabIndex = 2;
             // 
+            // ucLoggedInF
+            // 
+            this.ucLoggedInF.Location = new System.Drawing.Point(549, 257);
+            this.ucLoggedInF.Name = "ucLoggedInF";
+            this.ucLoggedInF.Size = new System.Drawing.Size(433, 163);
+            this.ucLoggedInF.TabIndex = 1;
+            // 
+            // ucLoginF
+            // 
+            this.ucLoginF.Location = new System.Drawing.Point(82, 66);
+            this.ucLoginF.Name = "ucLoginF";
+            this.ucLoginF.Size = new System.Drawing.Size(430, 165);
+            this.ucLoginF.TabIndex = 0;
+            // 
+            // ucTransactionsF
+            // 
+            this.ucTransactionsF.Location = new System.Drawing.Point(545, 90);
+            this.ucTransactionsF.Name = "ucTransactionsF";
+            this.ucTransactionsF.Size = new System.Drawing.Size(428, 165);
+            this.ucTransactionsF.TabIndex = 3;
+            // 
             // PettyCash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ucTransactionsF);
             this.Controls.Add(this.ucCashSpendF);
             this.Controls.Add(this.ucLoggedInF);
             this.Controls.Add(this.ucLoginF);
@@ -74,5 +83,6 @@
         private UserControls.ucLogin ucLoginF;
         private UserControls.ucLoggedIn ucLoggedInF;
         private UserControls.ucCashSpend ucCashSpendF;
+        private UserControls.ucTransactions ucTransactionsF;
     }
 }

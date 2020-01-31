@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NetTest.Models;
 using NetTest.DataSets;
 using NetTest.DataSets.sitedbTableAdapters;
 
@@ -14,16 +15,17 @@ namespace NetTest.UserControls
 {
     public partial class ucLogin : UserControl
     {
-        ucLoggedIn ucLoggedInRef = null;
+        private mUCs p_mucs = null;
 
         public ucLogin()
         {
             InitializeComponent();
         }
-        public void setRefs(ucLoggedIn liRef)
+        public void setUCs(mUCs mucs)
         {
-            ucLoggedInRef = liRef;
+            this.p_mucs = mucs;
         }
+
         private void liSubmit_Click(object sender, EventArgs e)
         {
             spAccountLoginOutTableAdapter ta = new spAccountLoginOutTableAdapter();
@@ -32,6 +34,7 @@ namespace NetTest.UserControls
             {
                 if (dt.Rows.Count > 0)
                 {
+                    sitedb.spAccountLoginOutRow dr = dt[0];
                     Licontinue.Visible = true;
                     LIstatus.Text = "Logged in";
                     LIusername.Enabled = false;
@@ -49,10 +52,14 @@ namespace NetTest.UserControls
 
         private void Licontinue_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            if (ucLoggedInRef != null)
+            mUCs p_mucs = PettyCash.c_mUCs;
+
+            p_mucs.m_ucLogin.Hide();
+            if (p_mucs != null)
             {
-                ucLoggedInRef.Show();
+                p_mucs.m_ucLoggedIn.Left = p_mucs.m_ucLogin.Left;
+                p_mucs.m_ucLoggedIn.Top = p_mucs.m_ucLogin.Top;
+                p_mucs.m_ucLoggedIn.Show();
             }
         }
     }

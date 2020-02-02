@@ -1,3 +1,4 @@
+/*
 use master
 go
 if exists (select * from master.dbo.sysdatabases where name='sitedb')
@@ -5,6 +6,7 @@ drop database sitedb
 go
 create database sitedb
 go
+*/
 use sitedb
 go
 
@@ -235,10 +237,13 @@ Go
 CREATE PROCEDURE spAccountReadById 
 	@accId uniqueidentifier
 AS
-	select acc.accId, acc.accFirstName, acc.accLastName, acc.accUserName, act.actKey, act.actName from tblAccount acc
+	select top (1) acc.accId, acc.accFirstName, acc.accLastName, acc.accUserName, act.actKey, act.actName, adt.autKey, aud.acaDT from tblAccount acc
 	 inner join tblAccountTypeIndex ati on acc.accId=ati.atiAccount
 	 inner join tblAccountType act on act.actId=ati.atiAccountType
+     inner join tblAccountAudit aud on aud.acaAccount = acc.accId
+	 inner join tblAuditType adt on adt.autId=aud.acaAuditType
 	where acc.accId = @accId
+    order by aud.acaDT desc
 GO
 
 if exists (select * from sys.procedures where name = 'spCashSpendCategory')
@@ -269,12 +274,28 @@ Drop PROCEDURE [dbo].[spGetTransactions]
 Go
 Create PROCEDURE [dbo].[spGetTransactions] 
 AS
-select pca.pcaDT as DateTime, pca.pcaAmount as Amount, 'Category' as Category, 'who spent cash' as Person from tblPettyCashAudit pca
+select pca.pcaDT as DateTime, pca.pcaAmount as Amount,
+case when aut.autKey='Cs' then 'what was spent' else 'cash added' end as Category,
+'who spent/added cash' as Person
+from tblPettyCashAudit pca
+inner join tblAccount acc on pca.pcaAccount=acc.accId
+inner join tblAuditType aut on pca.pcaAuditType=aut.autId
+order by pca.pcaDt desc
+Go
+
+
+if exists (select * from sys.procedures where name = 'spAuditTypeReadByKey')
+Drop PROCEDURE [dbo].[spAuditTypeReadByKey]
+Go
+Create PROCEDURE [dbo].[spAuditTypeReadByKey] 
+   @autkey as nvarchar(10)
+AS
+select autId,autKey,autName from tblAuditType aut where aut.autKey = @autkey
 Go
 
 -----------------------------------------------------------------------------------------
 -- Data
-declare @actkey char(10)
+declare @actkey varchar(10)
 
 set @actkey = 'Emp'
 if not exists (select * from tblAccountType where actKey=@actkey)

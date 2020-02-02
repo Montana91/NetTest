@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PCSspend = new System.Windows.Forms.Button();
             this.spCashSpendCategoryTableAdapter = new NetTest.DataSets.sitedbTableAdapters.spCashSpendCategoryTableAdapter();
+            this.butMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.spCashSpendCategoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteds)).BeginInit();
             this.SuspendLayout();
@@ -107,10 +108,21 @@
             // 
             this.spCashSpendCategoryTableAdapter.ClearBeforeFill = true;
             // 
+            // butMainMenu
+            // 
+            this.butMainMenu.Location = new System.Drawing.Point(18, 131);
+            this.butMainMenu.Name = "butMainMenu";
+            this.butMainMenu.Size = new System.Drawing.Size(75, 23);
+            this.butMainMenu.TabIndex = 11;
+            this.butMainMenu.Text = "Main Menu";
+            this.butMainMenu.UseVisualStyleBackColor = true;
+            this.butMainMenu.Click += new System.EventHandler(this.butMainMenu_Click);
+            // 
             // ucCashSpend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.butMainMenu);
             this.Controls.Add(this.PCSspend);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PCSamount);
@@ -136,5 +148,6 @@
         private System.Windows.Forms.BindingSource spCashSpendCategoryBindingSource;
         private DataSets.sitedb siteds;
         private DataSets.sitedbTableAdapters.spCashSpendCategoryTableAdapter spCashSpendCategoryTableAdapter;
+        private System.Windows.Forms.Button butMainMenu;
     }
 }

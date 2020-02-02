@@ -31,7 +31,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.LINaddcash = new System.Windows.Forms.Button();
             this.LINspendcash = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LINtransactions = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.LINbalance = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.LINaddcash.TabIndex = 6;
             this.LINaddcash.Text = "Add cash";
             this.LINaddcash.UseVisualStyleBackColor = true;
+            this.LINaddcash.Click += new System.EventHandler(this.LINaddcash_Click);
             // 
             // LINspendcash
             // 
@@ -67,14 +68,15 @@
             this.LINspendcash.UseVisualStyleBackColor = true;
             this.LINspendcash.Click += new System.EventHandler(this.LINspendcash_Click);
             // 
-            // button1
+            // LINtransactions
             // 
-            this.button1.Location = new System.Drawing.Point(52, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "View Transactions";
-            this.button1.UseVisualStyleBackColor = true;
+            this.LINtransactions.Location = new System.Drawing.Point(52, 99);
+            this.LINtransactions.Name = "LINtransactions";
+            this.LINtransactions.Size = new System.Drawing.Size(115, 23);
+            this.LINtransactions.TabIndex = 8;
+            this.LINtransactions.Text = "View Transactions";
+            this.LINtransactions.UseVisualStyleBackColor = true;
+            this.LINtransactions.Click += new System.EventHandler(this.LINtransactions_Click);
             // 
             // label1
             // 
@@ -120,7 +122,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LINbalance);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LINtransactions);
             this.Controls.Add(this.LINspendcash);
             this.Controls.Add(this.LINaddcash);
             this.Controls.Add(this.label3);
@@ -137,7 +139,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button LINaddcash;
         private System.Windows.Forms.Button LINspendcash;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button LINtransactions;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LINbalance;
         private System.Windows.Forms.Label label2;

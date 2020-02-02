@@ -31,21 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.dgTransactions = new System.Windows.Forms.DataGridView();
-            this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.spGetTransactionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sitedbDataSet = new NetTest.sitedbDataSet();
-            this.siteds = new NetTest.DataSets.sitedb();
-            this.spAccountLoginOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spAccountLoginOutTableAdapter = new NetTest.DataSets.sitedbTableAdapters.spAccountLoginOutTableAdapter();
-            this.spGetTransactionsTableAdapter = new NetTest.sitedbDataSetTableAdapters.spGetTransactionsTableAdapter();
+            this.sitedb = new NetTest.DataSets.sitedb();
+            this.spGetTransactionsTableAdapter = new NetTest.DataSets.sitedbTableAdapters.spGetTransactionsTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.burMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetTransactionsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sitedbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siteds)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spAccountLoginOutBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sitedb)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -60,86 +56,91 @@
             // 
             // dgTransactions
             // 
+            this.dgTransactions.AllowUserToAddRows = false;
+            this.dgTransactions.AllowUserToDeleteRows = false;
+            this.dgTransactions.AllowUserToOrderColumns = true;
             this.dgTransactions.AutoGenerateColumns = false;
             this.dgTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgTransactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dateTimeDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn,
-            this.personDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
             this.dgTransactions.DataSource = this.spGetTransactionsBindingSource;
-            this.dgTransactions.Location = new System.Drawing.Point(3, 42);
+            this.dgTransactions.Location = new System.Drawing.Point(4, 41);
             this.dgTransactions.Name = "dgTransactions";
-            this.dgTransactions.Size = new System.Drawing.Size(425, 107);
+            this.dgTransactions.ReadOnly = true;
+            this.dgTransactions.Size = new System.Drawing.Size(477, 210);
             this.dgTransactions.TabIndex = 8;
-            // 
-            // dateTimeDataGridViewTextBoxColumn
-            // 
-            this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "DateTime";
-            this.dateTimeDataGridViewTextBoxColumn.HeaderText = "DateTime";
-            this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // personDataGridViewTextBoxColumn
-            // 
-            this.personDataGridViewTextBoxColumn.DataPropertyName = "Person";
-            this.personDataGridViewTextBoxColumn.HeaderText = "Person";
-            this.personDataGridViewTextBoxColumn.Name = "personDataGridViewTextBoxColumn";
-            this.personDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // spGetTransactionsBindingSource
             // 
             this.spGetTransactionsBindingSource.DataMember = "spGetTransactions";
-            this.spGetTransactionsBindingSource.DataSource = this.sitedbDataSet;
+            this.spGetTransactionsBindingSource.DataSource = this.sitedb;
             // 
-            // sitedbDataSet
+            // sitedb
             // 
-            this.sitedbDataSet.DataSetName = "sitedbDataSet";
-            this.sitedbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // siteds
-            // 
-            this.siteds.DataSetName = "siteds";
-            this.siteds.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spAccountLoginOutBindingSource
-            // 
-            this.spAccountLoginOutBindingSource.DataMember = "spAccountLoginOut";
-            this.spAccountLoginOutBindingSource.DataSource = this.siteds;
-            // 
-            // spAccountLoginOutTableAdapter
-            // 
-            this.spAccountLoginOutTableAdapter.ClearBeforeFill = true;
+            this.sitedb.DataSetName = "sitedb";
+            this.sitedb.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // spGetTransactionsTableAdapter
             // 
             this.spGetTransactionsTableAdapter.ClearBeforeFill = true;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "DateTime";
+            this.dataGridViewTextBoxColumn1.HeaderText = "DateTime";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Amount";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Amount";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Category";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Person";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Person";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // burMainMenu
+            // 
+            this.burMainMenu.Location = new System.Drawing.Point(4, 257);
+            this.burMainMenu.Name = "burMainMenu";
+            this.burMainMenu.Size = new System.Drawing.Size(75, 23);
+            this.burMainMenu.TabIndex = 9;
+            this.burMainMenu.Text = "Main Menu";
+            this.burMainMenu.UseVisualStyleBackColor = true;
+            this.burMainMenu.Click += new System.EventHandler(this.butMainMain_Click);
+            // 
             // ucTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.burMainMenu);
             this.Controls.Add(this.dgTransactions);
             this.Controls.Add(this.label3);
             this.Name = "ucTransactions";
-            this.Size = new System.Drawing.Size(428, 165);
+            this.Size = new System.Drawing.Size(506, 295);
             ((System.ComponentModel.ISupportInitialize)(this.dgTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetTransactionsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sitedbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siteds)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spAccountLoginOutBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sitedb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,16 +148,18 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgTransactions;
-        private DataSets.sitedb siteds;
-        private System.Windows.Forms.BindingSource spAccountLoginOutBindingSource;
-        private DataSets.sitedbTableAdapters.spAccountLoginOutTableAdapter spAccountLoginOutTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn personDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgTransactions;
         private System.Windows.Forms.BindingSource spGetTransactionsBindingSource;
-        private sitedbDataSet sitedbDataSet;
-        private sitedbDataSetTableAdapters.spGetTransactionsTableAdapter spGetTransactionsTableAdapter;
+        private DataSets.sitedb sitedb;
+        private DataSets.sitedbTableAdapters.spGetTransactionsTableAdapter spGetTransactionsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button burMainMenu;
     }
 }

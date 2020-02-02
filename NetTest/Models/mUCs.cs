@@ -8,11 +8,12 @@ namespace NetTest.Models
 {
     public class mUCs
     {
-        public mUCs(ucLogin login, ucLoggedIn loggedin, ucCashSpend cash, ucTransactions trans)
+        public mUCs(ucLogin login, ucLoggedIn loggedin, ucCashSpend cashSpend, ucCashAdd cashAdd, ucTransactions trans)
         {
             m_ucLogin = login;
             m_ucLoggedIn = loggedin;
-            m_ucCashSpend = cash;
+            m_ucCashSpend = cashSpend;
+            m_ucCashAdd = cashAdd;
             m_ucTransactions = trans;
         }
 
@@ -20,14 +21,16 @@ namespace NetTest.Models
         {
             m_ucLogin.Hide();
             m_ucLoggedIn.Hide();
+            m_ucCashAdd.Hide();
             m_ucCashSpend.Hide();
             m_ucTransactions.Hide();
         }
 
-        static mUCs s_mUCs;
+        public static mUCs s_mUCs;
 
         public ucTransactions m_ucTransactions;
         public ucCashSpend m_ucCashSpend;
+        public ucCashAdd m_ucCashAdd;
         public ucLogin m_ucLogin;
         public ucLoggedIn m_ucLoggedIn;
     }

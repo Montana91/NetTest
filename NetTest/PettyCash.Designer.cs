@@ -32,6 +32,7 @@
             this.ucLoggedInF = new NetTest.UserControls.ucLoggedIn();
             this.ucLoginF = new NetTest.UserControls.ucLogin();
             this.ucTransactionsF = new NetTest.UserControls.ucTransactions();
+            this.ucCashAddF = new NetTest.UserControls.ucCashAdd();
             this.SuspendLayout();
             // 
             // ucCashSpendF
@@ -57,16 +58,24 @@
             // 
             // ucTransactionsF
             // 
-            this.ucTransactionsF.Location = new System.Drawing.Point(545, 90);
+            this.ucTransactionsF.Location = new System.Drawing.Point(407, 12);
             this.ucTransactionsF.Name = "ucTransactionsF";
-            this.ucTransactionsF.Size = new System.Drawing.Size(428, 165);
+            this.ucTransactionsF.Size = new System.Drawing.Size(506, 295);
             this.ucTransactionsF.TabIndex = 3;
+            // 
+            // ucCashAddF
+            // 
+            this.ucCashAddF.Location = new System.Drawing.Point(301, 393);
+            this.ucCashAddF.Name = "ucCashAddF";
+            this.ucCashAddF.Size = new System.Drawing.Size(428, 165);
+            this.ucCashAddF.TabIndex = 4;
             // 
             // PettyCash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ucCashAddF);
             this.Controls.Add(this.ucTransactionsF);
             this.Controls.Add(this.ucCashSpendF);
             this.Controls.Add(this.ucLoggedInF);
@@ -84,5 +93,6 @@
         private UserControls.ucLoggedIn ucLoggedInF;
         private UserControls.ucCashSpend ucCashSpendF;
         private UserControls.ucTransactions ucTransactionsF;
+        private UserControls.ucCashAdd ucCashAddF;
     }
 }

@@ -26,32 +26,11 @@ namespace NetTest.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\ProjectV13;Initial Catalog=sitedb;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\Localdbss2017;Initial Catalog=sitedb;Integrated Security=Tr" +
+            "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
         public string sitedbConnectionString {
             get {
                 return ((string)(this["sitedbConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\sitedb.mdf;In" +
-            "tegrated Security=True")]
-        public string sitedbConnectionString1 {
-            get {
-                return ((string)(this["sitedbConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\ProjectsV13;Initial Catalog=sitedb;Integrated Security=True" +
-            ";Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
-        public string sitedbConnectionString2 {
-            get {
-                return ((string)(this["sitedbConnectionString2"]));
             }
         }
     }

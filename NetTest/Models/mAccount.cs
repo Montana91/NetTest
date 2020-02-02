@@ -40,15 +40,20 @@ namespace NetTest.Models
 
         public cAccount(sitedb.spAccountReadByIdDataTable dt)
         {
-            accId = dt[0].accId;
-            accFirstName = dt[0].accFirstName;
-            accLastName = dt[0].accLastName;
-            accUserName = dt[0].accUserName;
+            sitedb.spAccountReadByIdRow dr = dt[0];
+            accId = dr.accId;
+            accFirstName = dr.accFirstName;
+            accLastName = dr.accLastName;
+            accUserName = dr.accUserName;
+            accAudKey = dr.actKey;
+            accAutKey = dr.autKey;
+            accDT = dr.acaDT;
+
             accAccountTypeList = new List<cAccountType>();
 
-            foreach (sitedb.spAccountReadByIdRow dr in dt)
+            foreach (sitedb.spAccountReadByIdRow drr in dt)
             {
-                accAccountTypeList.Add(new cAccountType(dr));
+                accAccountTypeList.Add(new cAccountType(drr));
             }
         }
 
@@ -71,10 +76,35 @@ namespace NetTest.Models
             return ret;
         }
 
+
+        public cAccount checkLoggedIn()
+        {
+            cAccount ret = null;
+
+            mAccount acc = new mAccount();
+            mUCs p_mucs = mUCs.s_mUCs;
+            Guid? mAccount = acc.accountLoggedIn();
+            if (mAccount == null)
+            {
+                p_mucs.HideAll();
+                p_mucs.m_ucLogin.Display();
+
+            }
+            else
+            {
+                ret = new cAccount().readById((Guid)mAccount);
+            }
+
+            return ret;
+        }
+
         public Guid accId;
         public string accFirstName;
         public string accLastName;
         public string accUserName;
+        public string accAudKey;
+        public string accAutKey;
+        public DateTime accDT;
         public List<cAccountType> accAccountTypeList;
     }
 

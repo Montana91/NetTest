@@ -15,17 +15,20 @@ namespace NetTest.UserControls
 {
     public partial class ucLogin : UserControl
     {
-        private mUCs p_mucs = null;
-
         public ucLogin()
         {
             InitializeComponent();
         }
-        public void setUCs(mUCs mucs)
-        {
-            this.p_mucs = mucs;
-        }
 
+        public void Display()
+        {
+            mUCs p_mucs = mUCs.s_mUCs;
+            p_mucs.HideAll();
+
+            //p_mucs.m_ucLogin.Left = p_mucs.m_ucLogin.Left;
+            //p_mucs.m_ucLogin.Top = p_mucs.m_ucLogin.Top;
+            p_mucs.m_ucLogin.Show();
+        }
         private void liSubmit_Click(object sender, EventArgs e)
         {
             spAccountLoginOutTableAdapter ta = new spAccountLoginOutTableAdapter();
@@ -35,11 +38,14 @@ namespace NetTest.UserControls
                 if (dt.Rows.Count > 0)
                 {
                     sitedb.spAccountLoginOutRow dr = dt[0];
-                    Licontinue.Visible = true;
-                    LIstatus.Text = "Logged in";
-                    LIusername.Enabled = false;
-                    LIpwd.Enabled = false;
-                    LIsubmit.Enabled = false;
+                    if (dr.acaAccount != Guid.Empty)
+                    {
+                        Licontinue.Visible = true;
+                        LIstatus.Text = "Logged in";
+                        LIusername.Enabled = false;
+                        LIpwd.Enabled = false;
+                        LIsubmit.Enabled = false;
+                    }
                 }
             }
         }
@@ -52,7 +58,7 @@ namespace NetTest.UserControls
 
         private void Licontinue_Click(object sender, EventArgs e)
         {
-            mUCs p_mucs = PettyCash.c_mUCs;
+            mUCs p_mucs = mUCs.s_mUCs;
 
             p_mucs.m_ucLogin.Hide();
             if (p_mucs != null)

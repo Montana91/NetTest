@@ -15,42 +15,34 @@ namespace NetTest.UserControls
 {
     public partial class ucCashSpend : UserControl
     {
-        mAccount acc = null;
         cAccount cAcc = null;
 
-        ucLogin ucLoginRef = null;
-        ucLoggedIn ucLoggedInRef = null;
         decimal amount = 0;
-        string amountStr = "";
+
         public ucCashSpend()
         {
             InitializeComponent();
         }
 
-        public void setRefs(ucLoggedIn liRef, ucLogin loRef)
+        public void Display()
         {
-            ucLoggedInRef = liRef;
-            ucLoginRef = loRef;
+            mUCs p_mucs = mUCs.s_mUCs;
+            p_mucs.HideAll();
+
+            p_mucs.m_ucCashSpend.Left = p_mucs.m_ucLogin.Left;
+            p_mucs.m_ucCashSpend.Top = p_mucs.m_ucLogin.Top;
+            p_mucs.m_ucCashSpend.Show();
+
+            cAcc = new cAccount().checkLoggedIn();
+
+            PCScombo.DataSource = spCashSpendCategoryTableAdapter.GetData();
         }
+
+
 
         private void ucCashSpend_Load(object sender, EventArgs e)
         {
-            acc = new mAccount();
 
-            Guid? mAccount = acc.accountLoggedIn();
-            if (mAccount == null)
-            {
-                this.Hide();
-                if (ucLoginRef != null)
-                {
-                    ucLoginRef.Show();
-                }
-            }
-            else
-            {
-                cAcc = new cAccount().readById((Guid)mAccount);
-            }
-            PCScombo.DataSource = spCashSpendCategoryTableAdapter.GetData();
         }
 
 
@@ -71,16 +63,32 @@ namespace NetTest.UserControls
 
         private void PCSspend_Click(object sender, EventArgs e)
         {
+            Exception ex = null;
+            mUCs p_mucs = mUCs.s_mUCs;
             spCashUpdateTableAdapter ta = new spCashUpdateTableAdapter();
-
-            Guid catid = Guid.Parse("1AE2822A-1EC5-4E29-9670-56101BED344C");
-            Decimal cash = Convert.ToDecimal(PCSamount.Text);
+            DataRowView drv = (DataRowView) PCScombo.SelectedItem;
+            Guid catid = Guid.Parse(drv.Row["pccId"].ToString());
+            //Guid catid = Guid.Parse("1AE2822A-1EC5-4E29-9670-56101BED344C");
+            Decimal cash = 0.0M;
+            try
+            {
+                cash = Convert.ToDecimal(PCSamount.Text);
+            }
+            catch (Exception exc)
+            {
+                ex = exc;
+            }
             if (cAcc != null)
             {
                 sitedb.spCashUpdateDataTable dt = ta.GetData(DateTime.Now, cAcc.accId, catid, cash, "Cs");
             }
-            this.Hide();
-            this.ucLoggedInRef.Show();
+            p_mucs.m_ucLoggedIn.Display();
+        }
+
+        private void butMainMenu_Click(object sender, EventArgs e)
+        {
+            mUCs p_mucs = mUCs.s_mUCs;
+            p_mucs.m_ucLoggedIn.Display();
         }
     }
 }

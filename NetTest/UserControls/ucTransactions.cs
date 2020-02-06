@@ -35,5 +35,15 @@ namespace NetTest.UserControls
             mUCs p_mucs = mUCs.s_mUCs;
             p_mucs.m_ucLoggedIn.Display();
         }
+
+        private void dgTransactions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ucTransactions_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

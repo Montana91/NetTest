@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LIusername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,6 +37,12 @@
             this.LIsubmit = new System.Windows.Forms.Button();
             this.LIstatus = new System.Windows.Forms.Label();
             this.Licontinue = new System.Windows.Forms.Button();
+            this.sitedb = new NetTest.DataSets.sitedb();
+            this.tblAuditTypeTableAdapter = new NetTest.DataSets.sitedbTableAdapters.tblAuditTypeTableAdapter();
+            this.tableAdapterManager = new NetTest.DataSets.sitedbTableAdapters.TableAdapterManager();
+            this.sitedbBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.sitedb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sitedbBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // LIusername
@@ -83,7 +90,7 @@
             // 
             // LIsubmit
             // 
-            this.LIsubmit.Location = new System.Drawing.Point(188, 96);
+            this.LIsubmit.Location = new System.Drawing.Point(188, 128);
             this.LIsubmit.Name = "LIsubmit";
             this.LIsubmit.Size = new System.Drawing.Size(75, 23);
             this.LIsubmit.TabIndex = 5;
@@ -95,7 +102,7 @@
             // 
             this.LIstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LIstatus.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.LIstatus.Location = new System.Drawing.Point(115, 129);
+            this.LIstatus.Location = new System.Drawing.Point(104, 167);
             this.LIstatus.Name = "LIstatus";
             this.LIstatus.Size = new System.Drawing.Size(236, 23);
             this.LIstatus.TabIndex = 6;
@@ -104,13 +111,39 @@
             // 
             // Licontinue
             // 
-            this.Licontinue.Location = new System.Drawing.Point(352, 129);
+            this.Licontinue.Location = new System.Drawing.Point(363, 167);
             this.Licontinue.Name = "Licontinue";
             this.Licontinue.Size = new System.Drawing.Size(75, 23);
             this.Licontinue.TabIndex = 7;
             this.Licontinue.Text = "Continue";
             this.Licontinue.UseVisualStyleBackColor = true;
             this.Licontinue.Click += new System.EventHandler(this.Licontinue_Click);
+            // 
+            // sitedb
+            // 
+            this.sitedb.DataSetName = "sitedb";
+            this.sitedb.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblAuditTypeTableAdapter
+            // 
+            this.tblAuditTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.tblAccountAuditTableAdapter = null;
+            this.tableAdapterManager.tblAccountTableAdapter = null;
+            this.tableAdapterManager.tblAccountTypeIndexTableAdapter = null;
+            this.tableAdapterManager.tblAccountTypeTableAdapter = null;
+            this.tableAdapterManager.tblAuditTypeTableAdapter = this.tblAuditTypeTableAdapter;
+            this.tableAdapterManager.tblPettyCashAuditTableAdapter = null;
+            this.tableAdapterManager.tblPettyCashCategoryTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = NetTest.DataSets.sitedbTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // sitedbBindingSource
+            // 
+            this.sitedbBindingSource.DataSource = this.sitedb;
+            this.sitedbBindingSource.Position = 0;
             // 
             // ucLogin
             // 
@@ -125,8 +158,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LIusername);
             this.Name = "ucLogin";
-            this.Size = new System.Drawing.Size(430, 165);
+            this.Size = new System.Drawing.Size(507, 268);
             this.Load += new System.EventHandler(this.ucLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.sitedb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sitedbBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +177,9 @@
         private System.Windows.Forms.Button LIsubmit;
         private System.Windows.Forms.Label LIstatus;
         private System.Windows.Forms.Button Licontinue;
+        private DataSets.sitedb sitedb;
+        private System.Windows.Forms.BindingSource sitedbBindingSource;
+        private DataSets.sitedbTableAdapters.tblAuditTypeTableAdapter tblAuditTypeTableAdapter;
+        private DataSets.sitedbTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

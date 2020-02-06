@@ -26,8 +26,8 @@ namespace NetTest.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\Localdbss2017;Initial Catalog=sitedb;Integrated Security=Tr" +
-            "ue;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LENOVO-PC;Initial Catalog=sitedb;Integrated Security=True;Connect Tim" +
+            "eout=30;Encrypt=False;TrustServerCertificate=False")]
         public string sitedbConnectionString {
             get {
                 return ((string)(this["sitedbConnectionString"]));

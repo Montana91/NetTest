@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.dgTransactions = new System.Windows.Forms.DataGridView();
-            this.spGetTransactionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sitedb = new NetTest.DataSets.sitedb();
-            this.spGetTransactionsTableAdapter = new NetTest.DataSets.sitedbTableAdapters.spGetTransactionsTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spGetTransactionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sitedb = new NetTest.DataSets.sitedb();
+            this.spGetTransactionsTableAdapter = new NetTest.DataSets.sitedbTableAdapters.spGetTransactionsTableAdapter();
             this.burMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetTransactionsBindingSource)).BeginInit();
@@ -72,20 +72,7 @@
             this.dgTransactions.ReadOnly = true;
             this.dgTransactions.Size = new System.Drawing.Size(477, 210);
             this.dgTransactions.TabIndex = 8;
-            // 
-            // spGetTransactionsBindingSource
-            // 
-            this.spGetTransactionsBindingSource.DataMember = "spGetTransactions";
-            this.spGetTransactionsBindingSource.DataSource = this.sitedb;
-            // 
-            // sitedb
-            // 
-            this.sitedb.DataSetName = "sitedb";
-            this.sitedb.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spGetTransactionsTableAdapter
-            // 
-            this.spGetTransactionsTableAdapter.ClearBeforeFill = true;
+            this.dgTransactions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTransactions_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -119,6 +106,20 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // spGetTransactionsBindingSource
+            // 
+            this.spGetTransactionsBindingSource.DataMember = "spGetTransactions";
+            this.spGetTransactionsBindingSource.DataSource = this.sitedb;
+            // 
+            // sitedb
+            // 
+            this.sitedb.DataSetName = "sitedb";
+            this.sitedb.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spGetTransactionsTableAdapter
+            // 
+            this.spGetTransactionsTableAdapter.ClearBeforeFill = true;
+            // 
             // burMainMenu
             // 
             this.burMainMenu.Location = new System.Drawing.Point(4, 257);
@@ -138,6 +139,7 @@
             this.Controls.Add(this.label3);
             this.Name = "ucTransactions";
             this.Size = new System.Drawing.Size(506, 295);
+            this.Load += new System.EventHandler(this.ucTransactions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetTransactionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sitedb)).EndInit();
@@ -146,6 +148,7 @@
         }
 
         #endregion
+
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;

@@ -48,6 +48,7 @@
             this.ucLoggedInF.Name = "ucLoggedInF";
             this.ucLoggedInF.Size = new System.Drawing.Size(433, 163);
             this.ucLoggedInF.TabIndex = 1;
+           
             // 
             // ucLoginF
             // 

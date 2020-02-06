@@ -68,5 +68,18 @@ namespace NetTest.UserControls
                 p_mucs.m_ucLoggedIn.Show();
             }
         }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tblAuditTypeTableAdapter.FillBy(this.sitedb.tblAuditType);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }

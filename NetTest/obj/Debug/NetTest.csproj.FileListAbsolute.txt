@@ -1,0 +1,14 @@
+C:\NetTestFolder\NetTest\NetTest\bin\Debug\NetTest.exe.config
+C:\NetTestFolder\NetTest\NetTest\bin\Debug\NetTest.exe
+C:\NetTestFolder\NetTest\NetTest\bin\Debug\NetTest.pdb
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.csprojAssemblyReference.cache
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.PettyCash.resources
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.Properties.Resources.resources
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.UserControls.ucCashAdd.resources
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.UserControls.ucTransactions.resources
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.UserControls.ucCashSpend.resources
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.UserControls.ucLoggedIn.resources
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.UserControls.ucLogin.resources
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.csproj.GenerateResource.cache
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.exe
+C:\NetTestFolder\NetTest\NetTest\obj\Debug\NetTest.pdb

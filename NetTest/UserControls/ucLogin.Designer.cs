@@ -41,6 +41,8 @@
             this.tblAuditTypeTableAdapter = new NetTest.DataSets.sitedbTableAdapters.tblAuditTypeTableAdapter();
             this.tableAdapterManager = new NetTest.DataSets.sitedbTableAdapters.TableAdapterManager();
             this.sitedbBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sitedb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sitedbBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -145,10 +147,33 @@
             this.sitedbBindingSource.DataSource = this.sitedb;
             this.sitedbBindingSource.Position = 0;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Admin",
+            "Director",
+            "Employee"});
+            this.comboBox1.Location = new System.Drawing.Point(188, 90);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(110, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 23);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "UserType";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // ucLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Licontinue);
             this.Controls.Add(this.LIstatus);
             this.Controls.Add(this.LIsubmit);
@@ -181,5 +206,7 @@
         private System.Windows.Forms.BindingSource sitedbBindingSource;
         private DataSets.sitedbTableAdapters.tblAuditTypeTableAdapter tblAuditTypeTableAdapter;
         private DataSets.sitedbTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
     }
 }
